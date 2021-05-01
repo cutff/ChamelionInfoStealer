@@ -3,7 +3,7 @@
 Chamelion Infostealer is a Info Stealer that is able to steal most of the passwords and informations stored on a system and browser (credit cards too), hardware informations, BIOS informations, it check for a lot of stuff.<br>
 
 <h2>What is Chamelion ?</h2>
-Chamelion is a simple Windows Infostealer that you can use to expose informations about someone.<br><br>
+Chamelion is a simple Windows Infostealer that you can use to expose information about someone.<br><br>
 Chamelion is able to retrieve :<br>
      - Passwords on a system.<br>
      - Credentials stored on browsers (Might need to be cracked).<br>
