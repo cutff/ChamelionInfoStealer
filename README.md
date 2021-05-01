@@ -24,3 +24,6 @@ After his recon on the victim computer Chamelion send a couple of request to our
 Note that the project will become bigger everyday.
 
 ![Image](https://i.imgur.com/tffP503.png)
+
+
+Also even though not available yet, i am not responsible of any misuses made by user of this program.
