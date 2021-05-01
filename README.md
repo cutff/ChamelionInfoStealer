@@ -1,7 +1,5 @@
 # ChamelionInfoStealer
 Chamelion Infostealer is a Info Stealer that is able to steal most of the passwords and informations stored on a system and browser (credit cards too), hardware informations, BIOS informations, it check for a lot of stuff.<br>
-After his recon on the victim computer Chamelion send a couple of request to our websevrer.<br>
-Next his information gets uploaded on the NodeJS server (you're going to need to set this up files will eventually be in WEB directory).
 
 <h2>What is Chamelion ?</h2>
 Chamelion is a simple Windows Infostealer that you can use to expose informations about someone.<br>
@@ -19,9 +17,7 @@ Chamelion is able to retrieve :<br>
      - Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices).
 
 <h2>How it works ?</h2>
-After his recon on the victim computer Chamelion send a couple of request to our websevrer.<br>
-Next his information gets uploaded on the NodeJS server (you're going to need to set this up files will eventually be in WEB directory), you can search your targets
-by going to the most recent infections or by their IP Address/Computer Name.
+After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
 
 ![Image](https://i.imgur.com/tffP503.png)
 
