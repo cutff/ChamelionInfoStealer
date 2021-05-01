@@ -19,6 +19,8 @@ Chamelion is able to retrieve :<br>
 <h2>How it works ?</h2>
 After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
 
+<h2>Here's a (simplified) graph</h2>
+Note that the project will become bigger everyday.
 ![Image](https://i.imgur.com/tffP503.png)
 
 Note that if you choose default as shown in the screen it will choose the name mail.html for the mail template and list.txt for the list of target
