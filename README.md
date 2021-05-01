@@ -26,4 +26,4 @@ Note that the project will become bigger everyday.
 ![Image](https://i.imgur.com/tffP503.png)
 
 
-Also even though not available yet, i am not responsible of any misuses made by user of this program.
+Also even though not available yet, i am not responsible of any misuses made by user of this program, it is a learning experience and everyone can contribute.
