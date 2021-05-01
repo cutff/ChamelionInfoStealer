@@ -21,6 +21,7 @@ After his recon on the victim computer Chamelion send a couple of request to our
 
 <h2>Here's a (simplified) graph</h2>
 Note that the project will become bigger everyday.
+
 ![Image](https://i.imgur.com/tffP503.png)
 
 Note that if you choose default as shown in the screen it will choose the name mail.html for the mail template and list.txt for the list of target
