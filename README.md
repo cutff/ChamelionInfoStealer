@@ -15,7 +15,7 @@ Chamelion is able to retrieve :<br>
      - Browser Location.<br>
      - Server DNS.<br>
      - All files smaller than 700MB in Images folder.<br>
-     - Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices).<br><br>
+     - Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices...).<br><br>
 
 <h2>How it works ?</h2>
 After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
