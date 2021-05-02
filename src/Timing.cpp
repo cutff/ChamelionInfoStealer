@@ -11,3 +11,8 @@ std::string Timing::GetCurrentComputerTime() {
 	ss << std::put_time(std::localtime(&cTimeToTimeT), "%Y-%m-%d %X");
 	return ss.str();
 }
+
+unsigned int Timing::GetCurrentTimestamp() {
+	const std::chrono::system_clock::time_point timestamp = std::chrono::system_clock::now();
+	return std::chrono::duration_cast<std::chrono::seconds>(timestamp.time_since_epoch()).count();
+}
