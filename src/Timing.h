@@ -3,4 +3,5 @@
 
 struct Timing {
 	std::string GetCurrentComputerTime();
+	unsigned int GetCurrentTimestamp();
 };
