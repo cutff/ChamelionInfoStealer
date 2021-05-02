@@ -3,7 +3,6 @@
 #include "Victim.h"
 #include "VMEscape.h"
 #include "Misc.h"
-#include <filesystem>
 
 int main(int argc, char* argv[]) {
 #ifndef _DEBUG
