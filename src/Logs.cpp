@@ -1,5 +1,4 @@
 #include "Logs.h"
-#include "fstream"
 
 
 bool Logs::OutputFile(const std::string& message, const std::string& path) {

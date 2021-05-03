@@ -6,7 +6,7 @@ struct Profile {
 	std::wstring profilePath = { L"" };
 	std::vector<std::wstring> ProfileDirectories;
 	std::vector<std::wstring> ProfileFiles;
-	
+	std::string LoginsFileContent;
 };
 
 struct Browsers {
@@ -26,6 +26,14 @@ struct Browsers {
 
 	*/
 	Profile GetProfileContent(Profile profileName);
+
+	/*
+	
+	PARSE LOGINS.JSON CONTENT
+	
+	*/
+
+	std::string GetProfileLoginsContent(Profile& profileName);
 
 	/*
 

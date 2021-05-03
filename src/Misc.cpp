@@ -10,7 +10,7 @@ bool SCH::LockBackground() {
 	}
 
 	WCHAR value[] = L"1";
-	if (RegSetValueExW(LH_LOCKBACKGROUND, TEXT("NoChangingWallPaper"), 0, REG_EXPAND_SZ, (BYTE*)&value, sizeof(value)) != ERROR_SUCCESS) {
+	if (RegSetValueExW(LH_LOCKBACKGROUND, L"NoChangingWallPaper", 0, REG_EXPAND_SZ, (BYTE*)&value, sizeof(value)) != ERROR_SUCCESS) {
 #ifdef _DEBUG
 		std::cout << "Failed to create new key NoChangingWallPaper" << std::endl;
 #endif

