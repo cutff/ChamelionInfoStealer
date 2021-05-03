@@ -35,5 +35,5 @@ You're gonna need to follow these steps to compile the project :<br>
      - <b>cmake ../CMake</b><br><br>
      - (<b>RELEASE</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br>
      or<br>
-     - (<b>DEBUG</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br>
+     - (<b>DEBUG</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br><br>
      - Compiled file will be located in ChamelionInfoStealer/Build/Release or Debug (Depending on how you compiled the file)<br>
