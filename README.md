@@ -30,10 +30,10 @@ Also even though not available yet, i am not responsible of any misuses made by 
 
 <h2>How to compile and use ?</h2>
 You're gonna need to follow these steps to compile the project :<br>
-     - **git clone https://github.com/k0rup71n/ChamelionInfoStealer**<br>
-     - **cd ChamelionInfoStealer/Build**<br>
-     - **cmake ../CMake**<br><br>
-     - (**RELEASE**) : **cmake --build . -D CMAKE_BUILD_TYPE=Release . **<br>
+     - <b>git clone https://github.com/k0rup71n/ChamelionInfoStealer</b><br>
+     - <b>cd ChamelionInfoStealer/Build</b><br>
+     - <b>cmake ../CMake</b><br><br>
+     - (<b>RELEASE</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br>
      or<br>
-     - (**DEBUG**) : **cmake --build . -D CMAKE_BUILD_TYPE=Release . **<br>
+     - (<b>DEBUG</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br>
      - Compiled file will be located in ChamelionInfoStealer/Build/Release or Debug (Depending on how you compiled the file)<br>
