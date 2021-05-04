@@ -33,7 +33,7 @@ You're gonna need to follow these steps to compile the project :<br>
      - <b>git clone https://github.com/k0rup71n/ChamelionInfoStealer</b><br>
      - <b>cd ChamelionInfoStealer/Build</b><br>
      - <b>cmake ../CMake</b><br><br>
-     - (<b>RELEASE</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Release . </b><br>
+     - (<b>RELEASE</b>) : <b>cmake --build ..\Release --config Release</b><br>
      or<br>
-     - (<b>DEBUG</b>) : <b>cmake --build . -D CMAKE_BUILD_TYPE=Debug . </b><br><br>
-     - Compiled file will be located in ChamelionInfoStealer/Build/Release or Debug (Depending on how you compiled the file)<br>
+     - (<b>DEBUG</b>) : <b>cmake --build ..\Debug --config Debug</b><br><br>
+     - Compiled file will be located in ChamelionInfoStealer/Release or ChamelionInfoStealer\Debug (Depending on how you compiled the file)<br>
