@@ -9,17 +9,18 @@ Chamelion Infostealer is a Info Stealer that is able to steal most of the passwo
 <h2>What is Chamelion ?</h2>
 Chamelion is a simple Windows Infostealer that you can use to expose information about someone.<br><br>
 Chamelion is able to retrieve :<br>
-     - Passwords on a system.<br>
-     - Credentials stored on browsers (Might need to be cracked).<br>
-     - Network Passwords.<br>
-     - Credit Cards.<br>
-     - Network connected clients at the time of infection.<br>
-     - Name of all computers on the network with their IP Address and ports they run.<br>
-     - IP Address.<br>
-     - Browser Location.<br>
-     - Server DNS.<br>
-     - All files smaller than 700MB in Images folder.<br>
-     - Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices...).<br><br>
+     - <b>Passwords on a system.</b><br>
+     - <b>Credentials stored on browsers (Might need to be cracked).</b><br>
+     - <b>Network Passwords.</b><br>
+     - <b>Credit Cards.</b><br>
+     - <b>Network connected clients at the time of infection.</b><br>
+     - <b>Name of all computers on the network with their IP Address and ports they run.</b><br>
+     - <b>IP Address.</b><br>
+     - <b>Browser Location.</b><br>
+     - <b>Server DNS.</b><br>
+     - <b>All files smaller than 700MB in Images folder.</b><br>
+     - <b>Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices...).</b><br>
+     - <b>Printer Enumeration</b><br><br>
 
 <h2>How it works ?</h2>
 After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
@@ -44,7 +45,6 @@ You're gonna need to follow these steps to compile the project :<br>
 
 
 <h2>Things to come for Chamelion</h2>
-     - <b>Printer Enumeration</b><br>
      - <b>Black Fax Attack</b><br>
      - <b>Net Users Enumeration</b><br>
      - <b>Discord Cache Stealing</b><br>
