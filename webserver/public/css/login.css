@@ -1,0 +1,248 @@
+#pgpkeylink{
+    text-decoration:none;
+    color:greenyellow;
+}
+
+#pgpkeylink:hover{
+    color: red;
+}
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+  }
+  
+  @mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+    
+  @mixin flex($flex-value) {
+    -webkit-box-flex: $flex-value;
+    -moz-box-flex:  $flex-value;
+    -webkit-flex:  $flex-value;
+    -ms-flex:  $flex-value;
+    flex:  $flex-value;
+  }
+    
+  @mixin justify($justify-value) {
+    -webkit-justify-content: $justify-value;
+    -moz-justify-content: $justify-value;
+    justify-content: $justify-value;
+  }
+  
+  @mixin box-pack($box-pack) {
+    -webkit-box-pack: $box-pack;
+    -moz-box-pack: $box-pack;
+    -ms-flex-pack: $box-pack;
+  }
+  
+  @mixin trans ($prop, $time) {
+    -webkit-transition: $prop $time;
+    -moz-transition: $prop $time;
+    -ms-transition: $prop $time;
+    -o-transition: $prop $time;
+    transition: $prop $time;
+  }
+  
+  @mixin border-radius($bdrs) {
+    -webkit-border-radius: $bdrs;
+    -moz-border-radius: $bdrs;
+    border-radius: $bdrs;
+  
+  }
+  
+
+/*body,html,.login_form{
+    height: 100%; 
+}*/
+  
+.logo {
+    text-align: center;
+}
+    
+img {
+      /*max-width: 200px;*/
+      /*width: 100%;*/
+      /*margin:  1em auto 2em;*/
+}
+  .login_form {
+    margin-top:15px;
+    @include flexbox;
+    @include flex(center);
+    @include justify(center);
+    @include box-pack(center);
+    -webkit-align-items: center;
+        align-items: center;
+  }
+  
+  .login-wrapper {
+    max-width: 500px;
+    top: 25%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+form {
+  
+    background:black;
+    padding: 2em 1em;
+    font-family: helvetica, sans-serif;
+    @include border-radius(5px);
+    
+}
+    
+label {
+      color: #fff;
+      margin: 0 3% .25em;
+      display: block;
+      font-family: helvetica, sans-serif;
+}
+
+.test{
+    color: red;
+}
+
+input {
+    width: 94%;
+    padding: .5em .25em;
+    margin: 0 3% 1em;
+    font-size: 1.2em;
+    border: 2px solid #2C2F33;
+    outline: none;
+    @include trans(all, .25s);
+    @include border-radius(5px);
+        
+}
+
+password {
+        padding-right: 4rem; 
+}
+    
+input:focus {
+    border: 2px solid red;
+}
+    
+button {
+    width: 94%;
+	margin: 2em 3% 0;
+    border: 2px red solid;
+    margin-top: 10px;
+    background: black;
+    padding: 1em 0;
+    font-size: 1.25em;
+    clear: both;
+    color: red;
+    @include border-radius(5px);
+    outline: none;
+    @include trans(all, .25s);
+    cursor: pointer;
+	text-transform: uppercase;
+}
+    
+button:focus,button:hover {
+    background: red;
+    border: 2px solid red;
+	color: black;
+}
+  
+.hide-show{
+    width: 94%;
+    margin: -3.62em 3% 0 1.5%;
+    position: relative;
+    z-index: 5;
+    display: none;
+
+}
+
+#user{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: greenyellow;
+	text-align:center;
+}
+
+#user::selection{
+    background-color:transparent;
+}
+
+@keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+        30%{
+            color: purple;
+        }
+    }
+
+#password{
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: greenyellow;
+	text-align:center;
+}
+
+#password::selection{
+    background-color: transparent;
+}
+
+.errormessage{
+	text-align:center;
+	color: red;
+}
+
+.starlito{
+    margin-right: 15px;
+    margin-left: 15px;
+    animation: whostars 4s ease-in-out infinite;
+}
+
+.starlito::selection{
+    background-color:transparent;
+}
+
+#mitch{
+    color: red;
+}
+
+#connectbutton{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+#connectbutton::selection{
+    background-color:transparent;
+}
+
+
+#connectbutton:hover{
+    color: greenyellow;
+}
+
+.connectstar{
+    margin-left: 15px;
+    margin-right: 15px;
+}

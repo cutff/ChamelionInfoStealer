@@ -1,0 +1,39 @@
+#pgpkeylink{
+    text-decoration:none;
+    color:greenyellow;
+}
+
+#pgpkeylink:hover{
+    color: red;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background-color:black;
+}
+
+.c404{
+    margin-top: 80px;
+}
+
+.notfound {
+    color:red;
+    font-family: "Arial";
+    text-align:center;
+}
+
+#grumpy{
+    margin-left:auto;
+    margin-right:auto;
+    height: 225px;
+    width: 270px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-bottom: 25px;
+}

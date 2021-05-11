@@ -1,0 +1,1043 @@
+#pgpkeylink{
+    text-decoration:none;
+    color:greenyellow;
+}
+
+#pgpkeylink:hover{
+    color: red;
+}
+
+@media all and (min-width: 1280px) and (max-width: 2560px){
+    
+    body {
+        background-color:black;
+    }
+    
+    /* Logo */
+    #imge {
+        display:block;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    #container {
+        padding-top: 10px;
+        margin-bottom: 0;
+        padding-bottom:0;
+    }
+
+    /* cats */
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #cats li{
+        /*margin-top: 25px;*/
+        padding: 10px;
+        display: inline-flex;
+        color: red;
+        margin-left: 20%;
+        margin-right: 20%;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        /*border-bottom: 3px solid #1022aa;*/
+        margin: auto;
+    }
+    
+    .links:hover {
+        color: red;
+    }
+    
+    a.links{
+        color: greenyellow;
+    }
+    
+    .links {
+        text-decoration: none;
+    }
+    
+    .star {
+        color : red;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+    }
+    
+    .star:hover{
+        color: greenyellow;
+    }
+    
+    .who {
+        margin-top: 50px;
+        margin-left: 150px;
+        margin-right: 150px;
+        /*border-bottom: 2px solid red;*/
+        /*border-right: 6px solid red;*/
+        /*border-top: 2px solid red;*/
+        /*border-left: 6px solid red;*/
+    }
+
+    #how {
+        margin-top: 25px;
+        margin-left: 150px;
+        margin-right: 150px;
+        /*border-bottom: 2px solid red;*/
+        /*border-top: 2px solid red;*/
+        /*border-right: 6px solid red;*/
+        /*border-left: 6px solid red;*/
+    }
+    
+    #whoh1{
+        color: greenyellow;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        animation: whostars 3s ease-in-out infinite;
+    }
+
+    #whoh1::selection{
+        background-color: transparent;
+    }
+    
+    .textstar{
+        color:red;
+        animation: whostars 5s ease-in-out infinite;
+    }
+
+    .textstar::selection{
+        background-color: transparent;
+    }
+
+    .teststar{
+        display: none;
+    }
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+    }
+
+    .whotext::selection{
+        background-color: transparent;
+        color: greenyellow;
+    }
+
+    .foot{
+        padding: 50px, 0px, 25px, 0px;
+    }
+
+    #copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+
+}
+
+@media all and (min-width: 1000px) and (max-width: 1279px){
+
+    body {
+        background-color:black;
+    }
+    
+    /* Logo */
+    #imge {
+        display:block;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    #container {
+        padding-top: 10px;
+    }
+    
+    /* cats */
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        /*border-bottom: 3px solid #1022aa;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .links:hover {
+        color: red;
+    }
+    
+    a.links{
+        color: greenyellow;
+    }
+    
+    .links {
+        text-decoration: none;
+    }
+    
+    .star {
+        color : red;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+    }
+
+    .teststar{
+        display: none;
+    }
+    
+    .star:hover{
+        color: greenyellow;
+    }
+    
+    .who {
+        margin-top: 50px;
+        margin-left: 125px;
+        margin-right: 125px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #how {
+        margin-top: 15px;
+        margin-left: 125px;
+        margin-right: 125px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+    
+    #whoh1{
+        color: greenyellow;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        animation: whostars 3s ease-in-out infinite;
+    }
+    
+    .textstar{
+        color:red;
+        animation: whostars 5s ease-in-out infinite;
+    }
+
+    .textstar::selection{
+        background-color: transparent;
+    }
+    
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+    }
+
+    .whotext::selection{
+        background-color: transparent;
+        color: greenyellow;
+    }
+}
+
+@media all and (min-width: 800px) and (max-width: 999px){
+    
+    body {
+        background-color:black;
+    }
+    
+    /* Logo */
+    #imge {
+        display:block;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    #container {
+        padding-top: 10px;
+    }
+    
+    /* cats */
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        /*border-bottom: 3px solid #1022aa;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .links:hover {
+        color: red;
+    }
+    
+    a.links{
+        color: greenyellow;
+    }
+    
+    .links {
+        text-decoration: none;
+    }
+    
+    .teststar{
+        display:none;
+    }
+
+    .star {
+        color : red;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+    }
+    
+    .star:hover{
+        color: greenyellow;
+    }
+    
+    .who {
+        margin-top: 50px;
+        margin-left: 125px;
+        margin-right: 125px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #how {
+        margin-top: 15px;
+        margin-left: 125px;
+        margin-right: 125px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+    
+    #whoh1{
+        color: greenyellow;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        animation: whostars 3s ease-in-out infinite;
+    }
+
+    #whoh1::selection{
+        background-color: transparent;
+    }
+    
+    .textstar{
+        color:red;
+        animation: whostars 5s ease-in-out infinite;
+    }
+    
+    .textstar::selection{
+        background-color: transparent;
+    }
+    
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+    }
+
+    .whotext::selection{
+        background-color: transparent;
+        color: greenyellow;
+    }
+	
+	#copyrights{
+		margin-top: 45px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+}
+
+@media all and (min-width: 600px) and (max-width:799px){
+    
+    body {
+        background-color:black;
+    }
+    
+    /* Logo */
+    #imge {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #container {
+        padding-top: 10px;
+    }
+    
+    /* cats */
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-block;
+        color: red;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        /*border-bottom: 3px solid #1022aa;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .links:hover {
+        color: red;
+    }
+    
+    a.links{
+        color: greenyellow;
+    }
+    
+    .links {
+        text-decoration: none;
+    }
+    
+    .teststar{
+        display:none;
+    }
+
+    .star {
+        color : red;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+    }
+    
+    .star:hover{
+        color: greenyellow;
+    }
+    
+    .who {
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #welcomecontainer{
+        display:none;
+    }
+
+    #how {
+        margin-top: 15px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+    
+    #whoh1{
+        color: greenyellow;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        animation: whostars 3s ease-in-out infinite;
+    }
+
+    #whoh1::selection{
+        background-color: transparent;
+    }
+    
+    .textstar{
+        color:red;
+        animation: whostars 5s ease-in-out infinite;
+    }
+
+    .textstar::selection{
+        background-color: transparent;
+    }
+    
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+    }
+
+    .whotext::selection{
+        background-color: transparent;
+        color: greenyellow;
+    }
+}
+
+@media all and (min-width: 400px) and (max-width: 599px){
+    body {
+        background-color:black;
+    }
+    
+    /* Logo */
+    #imge {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 175px;
+        height: 145px;
+    }
+    #container {
+        padding-top: 10px;
+    }
+
+    /* cats */
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #cats li{
+        list-style-type: none;
+        margin-top: 25px;
+        color: red;
+        padding-left: 5px;
+        padding-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        /*border-bottom: 3px solid red;*/
+    }
+
+    #welcomecontainer{
+        display:none;
+    }
+    
+    .links:hover {
+        color: red;
+    }
+    
+    a.links{
+        color: greenyellow;
+    }
+    
+    .links {
+        text-decoration: none;
+    }
+
+    .star {
+        color : red;
+        display:none;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes whostars {
+        75% {
+            color: blue;
+        }
+        50% {
+            color: red;
+        }
+        35%{
+            color: yellow;
+        }
+    }
+    
+    .star:hover{
+        color: greenyellow;
+    }
+    
+    .who {
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #how {
+        margin-top: 15px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    .teststar{
+        display: none;
+        color: red;
+        padding-right:20px;
+        padding-left: 20px;
+        animation: blinker 1.5s ease-in-out infinite;
+    }
+    
+    #whoh1{
+        color: greenyellow;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        font-size: 25px;
+        animation: whostars 3s ease-in-out infinite;
+    }
+    
+    #whoh1::selection{
+        background-color: transparent;
+    }
+
+    .textstar{
+        color:red;
+        animation: whostars 5s ease-in-out infinite;
+    }
+
+    .textstar::selection{
+        background-color: transparent;
+    }
+    
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+    }
+    .whotext::selection{
+        background-color: transparent;
+        color: greenyellow;
+    }
+	
+	#copyrights{
+		margin-top: 30px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+}
+
+
+
+/*@media screen and (min-width: 320px) and (max-width: 520px){
+    #who {
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #whoh1{
+        color: greenyellow;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        animation: whostars 3s ease-in-out infinite;
+    }
+
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        /*margin-left: 0px;
+        margin-right: 0px;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 2560px){
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+       /* margin-left: 200px;
+        margin-right: 200px;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 80px;
+        padding-right: 80px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .whotext {
+        margin-left: 50px;
+        margin-right: 50px;
+        color: red;
+        font-weight: bold;
+        font-style:italic;
+        flex-wrap: nowrap;
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 1680px){
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        /*margin-left: 0px;
+        margin-right: 0px;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 60px;
+        padding-right: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 28px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #cats {
+        text-align:center;
+        /*border-bottom: 3px solid red;*/
+        /*margin-left: 0px;
+        margin-right: 0px;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media all and (min-width: 790px) and (max-width: 950px){
+    #who {
+        margin-top: 100px;
+        margin-left: 25px;
+        margin-right: 25px;
+        border-bottom: 2px solid blue;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+    
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    
+}
+
+@media screen and (min-width: 700px) and (max-width: 800px){
+    #who {
+        margin-top: 100px;
+        margin-left: 25px;
+        margin-right: 25px;
+        border-bottom: 2px solid red;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media all and (min-width: 900px) and (max-width: 1100px){
+    #who {
+        margin-top: 100px;
+        margin-left: 25px;
+        margin-right: 25px;
+        border-bottom: 2px solid blue;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media all and (min-width: 450px) and (max-width:700px){
+    #who {
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-bottom: 2px solid blue;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+	
+	#copyrights{
+		margin-top: 50px;
+        display:block;
+        color: red;
+        text-align: center;
+    }
+
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media all and(min-width: 1100px) and (max-width: 1350px){
+    #who {
+        margin-top: 100px;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-bottom: 2px solid blue;
+        border-top: 2px solid red;
+        border-right: 2px solid red;
+        border-left: 2px solid red;
+    }
+
+    #cats li{
+        margin-top: 25px;
+        display: inline-flex;
+        color: red;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        /*border-bottom: 3px solid #1022aa;*/
+        /*margin-left: 0px;
+        margin-right: 0px;
+    }
+}*/
