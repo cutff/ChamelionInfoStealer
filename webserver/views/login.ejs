@@ -1,0 +1,22 @@
+<%- include('includes/header.ejs') %>
+<link rel="stylesheet" href="/css/login.css">
+<div class="login_form">
+    <section class="login-wrapper">
+        <form method="POST" action="/building" id="login">
+            <label for="username" id="user">Username</label>
+            <input name="username" type="text" autocapitalize="off" autocorrect="off">
+            <label for="password" id="password">Password</label>
+            <input name="password" type="password" autocapitalize="off" autocorrect="off">
+            <button type="submit" name="login-submit">
+                <span class="connectstar">★</span>
+                Connect
+                <span class="connectstar">★</span>
+            </button>
+        </form>
+    </section>
+</div>
+<footer style="height:80px">
+    <h3 style="color:red;text-align:center;font-family:'arial';">
+        <a href="/pgp" id="pgpkeylink">PGP Public Key</a>
+    </h3>
+</footer>
