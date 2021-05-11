@@ -25,9 +25,9 @@ add_library(ChamelionLibs
 		../src/Chamelion/Headers/Victim.h
 		../src/Chamelion/Headers/VMEscape.h
 		../src/Chamelion/Headers/NetUsers.h
-		../src/Chamelion/Headers/NetUsers.cpp
+		../src/Chamelion/Source/NetUsers.cpp
 		../src/Chamelion/Headers/Printers.h
-		../src/Chamelion/Headers/Printers.cpp
+		../src/Chamelion/Source/Printers.cpp
 		)
 	
 add_executable(Chamelion ../src/Chamelion/Source.cpp)
