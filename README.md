@@ -3,7 +3,7 @@
     <img src="https://i.pinimg.com/originals/e3/30/b6/e330b6c78137fd53a959ea52459bd79d.gif">
 </p>
 <br>
-*****PROJECT IS NOT READY YET PLEASE BE PATIENT...*****<br>
+<b>PROJECT IS NOT READY YET PLEASE BE PATIENT...</b><br>
 Chamelion Infostealer is a Info Stealer that is able to steal most of the passwords and informations stored on a system and browser (credit cards too), hardware informations, BIOS informations, it check for a lot of stuff.<br>
 
 <h2>What is Chamelion ?</h2>
