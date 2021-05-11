@@ -30,6 +30,6 @@ add_library(ChamelionLibs
 		../src/Chamelion/Source/Printers.cpp
 		)
 	
-add_executable(Chamelion ../src/Chamelion/Source.cpp)
+add_executable(Chamelion ../src/Chamelion/Source/Source.cpp)
 
 target_link_libraries(Chamelion ChamelionLibs)
