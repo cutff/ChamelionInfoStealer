@@ -155,18 +155,18 @@
     <ClCompile Include="Source/Timing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Browsers.h" />
-    <ClInclude Include="Directories.h" />
-    <ClInclude Include="Includes.h" />
-    <ClInclude Include="Logs.h" />
-    <ClInclude Include="Misc.h" />
-    <ClInclude Include="NetUsers.h" />
-    <ClInclude Include="Printers.h" />
-    <ClInclude Include="Process.h" />
-    <ClInclude Include="Registry.h" />
-    <ClInclude Include="Timing.h" />
-    <ClInclude Include="Victim.h" />
-    <ClInclude Include="VMEscape.h" />
+    <ClInclude Include="Headers/Browsers.h" />
+    <ClInclude Include="Headers/Directories.h" />
+    <ClInclude Include="Headers/Includes.h" />
+    <ClInclude Include="Headers/Logs.h" />
+    <ClInclude Include="Headers/Misc.h" />
+    <ClInclude Include="Headers/NetUsers.h" />
+    <ClInclude Include="Headers/Printers.h" />
+    <ClInclude Include="Headers/Process.h" />
+    <ClInclude Include="Headers/Registry.h" />
+    <ClInclude Include="Headers/Timing.h" />
+    <ClInclude Include="Headers/Victim.h" />
+    <ClInclude Include="Headers/VMEscape.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
