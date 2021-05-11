@@ -40,12 +40,12 @@ You're gonna need to follow these steps to compile the project :<br>
 
 
 <h2>Things to come for Chamelion</h2>
-     - <b>Printer Enumeration</b>
-     - <b>Black Fax Attack</b>
-     - <b>Net Users Enumeration</b>
-     - <b>Discord Cache Stealing</b>
-     - <b>Discord Token and cache stored data</b>
-     - <b>Listing of all available BSSID around the computer (Useful with WIGLE)</b>
-     - <b>Listing of every computer with their MAC Address</b>
-     - <b>Extraction of data from more browsers</b>
-     - <b>Take screenshots and send them every hour to the webserver.</b>
+     - <b>Printer Enumeration</b><br>
+     - <b>Black Fax Attack</b><br>
+     - <b>Net Users Enumeration</b><br>
+     - <b>Discord Cache Stealing</b><br>
+     - <b>Discord Token and cache stored data</b><br>
+     - <b>Listing of all available BSSID around the computer (Useful with WIGLE)</b><br>
+     - <b>Listing of every computer with their MAC Address</b><br>
+     - <b>Extraction of data from more browsers</b><br>
+     - <b>Take screenshots and send them every hour to the webserver.</b><br>
