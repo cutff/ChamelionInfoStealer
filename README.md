@@ -52,5 +52,5 @@ You're gonna need to follow these steps to compile the project :<br>
      - <b>Listing of all available BSSID around the computer (Useful with WIGLE)</b><br>
      - <b>Listing of every computer with their MAC Address</b><br>
      - <b>Extraction of data from more browsers</b><br>
-     - <b>Persistence on the computer</b>
+     - <b>Persistence on the computer</b><br>
      - <b>Take screenshots and send them every hour to the webserver. (Will come after Persistence)</b><br>
