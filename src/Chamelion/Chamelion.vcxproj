@@ -143,16 +143,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Browsers.cpp" />
-    <ClCompile Include="Directories.cpp" />
-    <ClCompile Include="Logs.cpp" />
-    <ClCompile Include="Misc.cpp" />
-    <ClCompile Include="NetUsers.cpp" />
-    <ClCompile Include="Printers.cpp" />
-    <ClCompile Include="Process.cpp" />
-    <ClCompile Include="Registry.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Timing.cpp" />
+    <ClCompile Include="Source/Browsers.cpp" />
+    <ClCompile Include="Source/Directories.cpp" />
+    <ClCompile Include="Source/Logs.cpp" />
+    <ClCompile Include="Source/Misc.cpp" />
+    <ClCompile Include="Source/NetUsers.cpp" />
+    <ClCompile Include="Source/Printers.cpp" />
+    <ClCompile Include="Source/Process.cpp" />
+    <ClCompile Include="Source/Registry.cpp" />
+    <ClCompile Include="Source/Source.cpp" />
+    <ClCompile Include="Source/Timing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Browsers.h" />
