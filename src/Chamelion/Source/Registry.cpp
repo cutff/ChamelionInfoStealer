@@ -1,4 +1,4 @@
-#include "Registry.h"
+#include "../Headers/Registry.h"
 
 std::string Registers::KeyGetValue(const char* keyPath, const char* keyName) {
 	char buffer[255];

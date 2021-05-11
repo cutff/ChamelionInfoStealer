@@ -1,4 +1,4 @@
-#include "Printers.h"
+#include "../Headers/Printers.h"
 
 /// <summary>
 /// reinterpretPrinterValueAddress is used to reintepret the pointer address of the values enumerated by EnumPrinters.
@@ -13,7 +13,48 @@ std::string reinterpretPrinterValueAddress(LPWSTR& printerInformation) {
 	return printersReinterpreted;
 }
 
+/// <summary>
+/// reinterpretPrinterValueAddress is used to reintepret the pointer address of the values enumerated by EnumPrinters.
+/// </summary>
+/// <param name="printerInformation">LPPRINTER_INFO_2 Value</param>
+/// <returns>The same value but reinterpreted as a std::string</returns>
+std::string reinterpretPrinterValueAddress(LPSTR& printerInformation) {
+	std::string printersReinterpreted;
+	for (int i = 0; i < strlen(printerInformation); i++) {
+		printersReinterpreted.append(reinterpret_cast<const char*>(printerInformation + i));
+	}
+	return printersReinterpreted;
+}
+
 bool Printers::EnumeratePrintersInformation() {
+	//Get default printer
+	DWORD DefaultPrinterNameLength = 0;
+	//Get buffer size
+	GetDefaultPrinter(NULL, &DefaultPrinterNameLength); //Obtain DefaultPrinterNameLength
+	char* DefaultPrinterNameBuffer = new char[DefaultPrinterNameLength]; //Allocate new char of size DefaultPrinterNameLength
+	//Get value
+	if (!(GetDefaultPrinterA(DefaultPrinterNameBuffer, &DefaultPrinterNameLength))) {
+		if (::GetLastError() == ERROR_INSUFFICIENT_BUFFER) {
+#ifdef _DEBUG
+			std::cout << "[ERROR] Failed to obtain Default Printer Name : " << "ERROR_INSUFFICIENT_BUFFER" << std::endl;
+#endif
+		}
+		if (::GetLastError() == ERROR_FILE_NOT_FOUND) {
+#ifdef _DEBUG
+			std::cout << "[ERROR] Failed to obtain Default Printer Name : " << "ERROR_FILE_NOT_FOUND" << std::endl;
+#endif
+		}
+
+	}
+	else {
+		//If the function succeeded
+		this->DefaultPrinterName = DefaultPrinterNameBuffer;
+		std::cout << "Default Printer Name : " << this->DefaultPrinterName << std::endl << std::endl;
+
+	}
+
+
+	//Enumerate All Printers with their details
 	LPPRINTER_INFO_2 printerInformation = nullptr;
 	DWORD pcbNeeded, pcReturned = { 0 }; //pcbNeeded : A pointer to a value that receives the number of bytes copied
 									 //pcbReturned : A pointer to a value that received the number of PRINTER_INFO_5.
@@ -38,17 +79,6 @@ bool Printers::EnumeratePrintersInformation() {
 
 
 	for (DWORD dwItem = 0; dwItem < pcReturned; dwItem++) {
-#ifdef _DEBUG
-		std::cout << "Printer Name : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) << std::endl;
-		printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ?
-			std::cout << "Share Name : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pShareName) << std::endl :
-			std::cout << "Share Name : NONE" << std::endl;
-
-		std::cout << "Ports : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName) << std::endl;
-		std::cout << "Driver Name : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName) << std::endl;
-		std::cout << "Comment : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pComment) << std::endl;
-		std::cout << "Location : " << reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation) << std::endl << std::endl;
-#endif
 		//If printInformation has attributes PRINTER_ATTRIBUTE_SHARED then push it into our struct vector else we push "NONE"
 		printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ?
 			Printers.push_back({
@@ -57,16 +87,34 @@ bool Printers::EnumeratePrintersInformation() {
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation)
-				}) : 
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
+				printerInformation[dwItem].Status,
+				printerInformation[dwItem].cJobs,
+				printerInformation[dwItem].Priority,
+				printerInformation[dwItem].AveragePPM
+				})
+			:
+
 			Printers.push_back({
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
-				"NONE", //Push NONE
+				"NONE", //PUSH NONE
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation)
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
+				printerInformation[dwItem].Status,
+				printerInformation[dwItem].cJobs,
+				printerInformation[dwItem].Priority,
+				printerInformation[dwItem].AveragePPM
 				});
 	}
+
+	//Print our printer informations in a for loop just for testing purposes
+	for (int i = 0; i < Printers.size(); i++) {
+		std::cout << this->Printers[i];
+	}
+	
 	return true;
 }

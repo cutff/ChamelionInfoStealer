@@ -1,7 +1,7 @@
 #include <chrono> //chrono
 #include <sstream> //sstream
 #include <iomanip> //put_time
-#include "Timing.h"
+#include "../Headers/Timing.h"
 
 std::string Timing::GetCurrentComputerTime() {
 	std::chrono::system_clock::time_point c_time = std::chrono::system_clock::now();

@@ -1,8 +1,8 @@
-#include "Includes.h"
-#include "Registry.h"
-#include "Victim.h"
-#include "VMEscape.h"
-#include "Misc.h"
+#include "../Headers/Includes.h"
+#include "../Headers/Registry.h"
+#include "../Headers/Victim.h"
+#include "../Headers/VMEscape.h"
+#include "../Headers/Misc.h"
 #include <filesystem>
 
 int main(int argc, char* argv[]) {

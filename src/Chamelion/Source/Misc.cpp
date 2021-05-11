@@ -1,4 +1,4 @@
-#include "Misc.h"
+#include "../Headers/Misc.h"
 
 bool SCH::LockBackground() {
 	HKEY LH_LOCKBACKGROUND;

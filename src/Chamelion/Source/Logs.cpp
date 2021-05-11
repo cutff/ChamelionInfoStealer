@@ -1,4 +1,4 @@
-#include "Logs.h"
+#include "../Headers/Logs.h"
 
 
 bool Logs::OutputFile(const std::string& message, const std::string& path) {
