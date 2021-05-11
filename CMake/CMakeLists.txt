@@ -7,23 +7,27 @@ endif()
 message(STATUS "Build Type : ${CMAKE_BUILD_TYPE}")
 add_library(ChamelionLibs
 	STATIC
-		../src/Chamelion/Includes.h
-		../src/Chamelion/Browsers.h
-		../src/Chamelion/Browsers.cpp
-		../src/Chamelion/Directories.h
-		../src/Chamelion/Directories.cpp
-		../src/Chamelion/Logs.h
-		../src/Chamelion/Logs.cpp
-		../src/Chamelion/Misc.h
-		../src/Chamelion/Misc.cpp
-		../src/Chamelion/Process.h
-		../src/Chamelion/Process.cpp
-		../src/Chamelion/Registry.cpp
-		../src/Chamelion/Registry.h
-		../src/Chamelion/Timing.h
-		../src/Chamelion/Timing.cpp
-		../src/Chamelion/Victim.h
-		../src/Chamelion/VMEscape.h
+		../src/Chamelion/Headers/Includes.h
+		../src/Chamelion/Headers/Browsers.h
+		../src/Chamelion/Source/Browsers.cpp
+		../src/Chamelion/Headers/Directories.h
+		../src/Chamelion/Source/Directories.cpp
+		../src/Chamelion/Headers/Logs.h
+		../src/Chamelion/Source/Logs.cpp
+		../src/Chamelion/Headers/Misc.h
+		../src/Chamelion/Source/Misc.cpp
+		../src/Chamelion/Headers/Process.h
+		../src/Chamelion/Source/Process.cpp
+		../src/Chamelion/Source/Registry.cpp
+		../src/Chamelion/Headers/Registry.h
+		../src/Chamelion/Headers/Timing.h
+		../src/Chamelion/Source/Timing.cpp
+		../src/Chamelion/Headers/Victim.h
+		../src/Chamelion/Headers/VMEscape.h
+		../src/Chamelion/Headers/NetUsers.h
+		../src/Chamelion/Headers/NetUsers.cpp
+		../src/Chamelion/Headers/Printers.h
+		../src/Chamelion/Headers/Printers.cpp
 		)
 	
 add_executable(Chamelion ../src/Chamelion/Source.cpp)
