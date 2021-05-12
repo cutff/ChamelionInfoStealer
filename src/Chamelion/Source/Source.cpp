@@ -7,9 +7,9 @@
 
 int main(int argc, char* argv[]) {
 #ifndef _DEBUG
-	//	if (IsDebuggerPresent()) {
+	//if (IsDebuggerPresent()) { Do not forget to uncomment this !
 	//		exit(EXIT_FAILURE);
-	//	}
+	//}
 	HWND hWindowConsole;
 	AllocConsole();
 	hWindowConsole = FindWindowA("ConsoleWindowClass", NULL);

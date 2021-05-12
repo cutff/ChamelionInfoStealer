@@ -49,5 +49,6 @@ public:
 		CloseHandle(pi.hThread);
 		CloseHandle(pi.hProcess);
 	}
+
 	bool GetFirefoxProfiles();
 };

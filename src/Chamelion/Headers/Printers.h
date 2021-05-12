@@ -1,4 +1,5 @@
 #include "Includes.h"
+#include "Logs.h"
 #include <winspool.h>
 #pragma once
 
@@ -6,6 +7,7 @@
 //https://docs.microsoft.com/en-us/windows/win32/printdocs/printing-and-print-spooler-functions
 
 struct PrinterInformations {
+
 	//Operator << to print our PrinterInformations dae right waey !
 	friend std::ostream& operator<<(std::ostream& outputStream, const PrinterInformations& c) {
 		outputStream << "Printer Name : " << c.PrinterName << std::endl;
@@ -52,7 +54,11 @@ struct PrinterInformations {
 	bool DefaultPrinter = false; //Is the printer the default one.
 };
 
-struct Printers {
+struct Printers : public Logs {
+	//LOGS INTERFACE IMPLEMENTATION
+	bool OutputFile(const std::string& message, const std::string& path) override;
+	bool OutputEncryptedContent(const std::string& message, const std::string& path) noexcept override;
+	//Functions and Members
 	std::string DefaultPrinterName;
 	std::vector<PrinterInformations> Printers; //Vector of PrinterInformations (Basically our list of printers)
 	bool EnumeratePrintersInformation();
