@@ -20,7 +20,12 @@ Chamelion is able to retrieve :<br>
      - <b>Server DNS.</b><br>
      - <b>All files smaller than 700MB in Images folder.</b><br>
      - <b>Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices...).</b><br>
-     - <b>Printer Enumeration</b><br><br>
+     - <b>Every Printer on the Network or Locally along with :</b><br>
+        - <b>Printer Name</b>   - <b>Processor</b><br>
+        - <b>Printer Ports</b>   - <b>Status</b><br>
+        - <b>Driver Name</b>   - <b>Location</b><br>
+        - <b>Comment</b>    - <b>Current Jobs</b><br>
+        - <b>Printer Priority</b>  - <b>Average PPM</b><br>
 
 <h2>How it works ?</h2>
 After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
