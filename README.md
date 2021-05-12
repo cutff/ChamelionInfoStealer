@@ -11,6 +11,7 @@ Chamelion is a simple Windows Infostealer that you can use to expose information
 Chamelion is able to retrieve :<br>
      - <b>Passwords on a system.</b><br>
      - <b>Credentials stored on browsers (Might need to be cracked).</b><br>
+     - <b>Network Users.</b><br>
      - <b>Network Passwords.</b><br>
      - <b>Credit Cards.</b><br>
      - <b>Network connected clients at the time of infection.</b><br>
