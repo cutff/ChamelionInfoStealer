@@ -9,6 +9,7 @@ struct PrinterInformations {
 	//Operator << to print our PrinterInformations dae right waey !
 	friend std::ostream& operator<<(std::ostream& outputStream, const PrinterInformations& c) {
 		outputStream << "Printer Name : " << c.PrinterName << std::endl;
+		outputStream << "Default Printer : " << (c.DefaultPrinter == true ? "TRUE" : "FALSE") << std::endl;
 		outputStream << "Share Name : " << c.PrinterShareName << std::endl;
 		outputStream << "Ports : " << c.PrinterPorts << std::endl;
 		outputStream << "DriverName : " << c.PrinterDriverName << std::endl;
@@ -47,6 +48,8 @@ struct PrinterInformations {
 	DWORD PrinterPriority; //A priority value that the spooler uses to route print jobs.
 
 	DWORD PrinterAveragePM; //The average number of pages per minute that have been printed on the printer.
+
+	bool DefaultPrinter = false; //Is the printer the default one.
 };
 
 struct Printers {

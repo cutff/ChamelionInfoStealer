@@ -77,10 +77,9 @@ bool Printers::EnumeratePrintersInformation() {
 		exit(EXIT_FAILURE);
 	}
 
-
 	for (DWORD dwItem = 0; dwItem < pcReturned; dwItem++) {
 		//If printInformation has attributes PRINTER_ATTRIBUTE_SHARED then push it into our struct vector else we push "NONE"
-		printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ?
+		printerInformation[dwItem].Attributes & PRINTER_ATTRIBUTE_SHARED ?
 			Printers.push_back({
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
 				reinterpretPrinterValueAddress(printerInformation[dwItem].pShareName), //PUSH SHARE NAME
@@ -92,7 +91,8 @@ bool Printers::EnumeratePrintersInformation() {
 				printerInformation[dwItem].Status,
 				printerInformation[dwItem].cJobs,
 				printerInformation[dwItem].Priority,
-				printerInformation[dwItem].AveragePPM
+				printerInformation[dwItem].AveragePPM,
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
 				})
 			:
 
@@ -107,7 +107,8 @@ bool Printers::EnumeratePrintersInformation() {
 				printerInformation[dwItem].Status,
 				printerInformation[dwItem].cJobs,
 				printerInformation[dwItem].Priority,
-				printerInformation[dwItem].AveragePPM
+				printerInformation[dwItem].AveragePPM,
+				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
 				});
 	}
 
