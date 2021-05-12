@@ -28,7 +28,7 @@ Chamelion is able to retrieve :<br>
         - <b>Printer Priority</b>  - <b>Average PPM</b><br>
 
 <h2>How it works ?</h2>
-After his recon on the victim computer Chamelion send a couple of request to our websevrer. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
+After his recon on the victim computer Chamelion send a couple of request to our webserver. (you're going to need to set this up files will eventually be in WEB directory), you can search your targets by going to the most recent infections or by their IP Address/Computer Name.
 
 <h2>Here's a (really really really simplified) graph (There is actually more happening)</h2>
 Note that the project will become bigger everyday.
