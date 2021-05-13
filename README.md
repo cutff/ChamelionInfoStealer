@@ -19,7 +19,7 @@ Chamelion is able to retrieve :<br>
      - <b>Name of all computers on the network with their IP Address and ports they run.</b><br>
      - <b>IP Address.</b><br>
      - <b>Browser Location.</b><br>
-     - <b>Server DNS.</b><br>
+     - <b>Server DNS Used.</b><br>
      - <b>All files smaller than 700MB in Images folder.</b><br>
      - <b>Hardware Informations (Motherboard, BIOS, BIOS Version, USB Devices...).</b><br>
      - <b>Every Printer on the Network or Locally along with :</b><br>
