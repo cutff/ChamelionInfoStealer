@@ -1,5 +1,6 @@
 #include "Includes.h"
 #include "Logs.h"
+#include "Colors.h"
 #include <winspool.h>
 #pragma once
 
@@ -11,10 +12,10 @@ struct PrinterInformations {
 	//Operator << to print our PrinterInformations dae right waey !
 	friend std::ostream& operator<<(std::ostream& outputStream, const PrinterInformations& c) {
 		outputStream << "Printer Name : " << c.PrinterName << std::endl;
-		outputStream << "Default Printer : " << (c.DefaultPrinter == true ? "TRUE" : "FALSE") << std::endl;
+		outputStream << "Default Printer : " << (c.DefaultPrinter == true ? "True" : "False") << std::endl;
 		outputStream << "Share Name : " << c.PrinterShareName << std::endl;
-		outputStream << "Ports : " << c.PrinterPorts << std::endl;
-		outputStream << "DriverName : " << c.PrinterDriverName << std::endl;
+		outputStream << "Ports : " << (c.PrinterPorts.length() > 1 ? c.PrinterPorts : "None") << std::endl;
+		outputStream << "DriverName : " << (c.PrinterDriverName.length() > 1 ? c.PrinterDriverName : "None") << std::endl;
 		outputStream << "Comment : " << c.PrinterComment << std::endl;
 		outputStream << "Location : " << c.PrinterLocation << std::endl;
 		outputStream << "Processor : " << c.PrinterProcessor << std::endl;

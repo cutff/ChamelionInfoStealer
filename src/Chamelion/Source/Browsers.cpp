@@ -165,7 +165,7 @@ std::string Browsers::GetProfileLoginsContent(Profile& profileName) {
 		r_ProfileContent.append(profileContent + "\n");
 	}
 #ifdef _DEBUG
-	std::cout << profileContent << std::endl << std::endl << std::endl;
+	//std::cout << profileContent << std::endl << std::endl << std::endl;
 #endif
 	return profileContent;
 }

