@@ -79,37 +79,20 @@ bool Printers::EnumeratePrintersInformation() {
 
 	for (DWORD dwItem = 0; dwItem < pcReturned; dwItem++) {
 		//If printInformation has attributes PRINTER_ATTRIBUTE_SHARED then push it into our struct vector else we push "NONE"
-		printerInformation[dwItem].Attributes & PRINTER_ATTRIBUTE_SHARED ?
-			Printers.push_back({
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pShareName), //PUSH SHARE NAME
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
-				printerInformation[dwItem].Status,
-				printerInformation[dwItem].cJobs,
-				printerInformation[dwItem].Priority,
-				printerInformation[dwItem].AveragePPM,
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
-				})
-			:
-
-			Printers.push_back({
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
-				"NONE", //PUSH NONE
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
-				printerInformation[dwItem].Status,
-				printerInformation[dwItem].cJobs,
-				printerInformation[dwItem].Priority,
-				printerInformation[dwItem].AveragePPM,
-				reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
-				});
+		Printers.push_back({
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
+			printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ? reinterpretPrinterValueAddress(printerInformation[dwItem].pShareName) : "None", //PUSH SHARE NAME
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
+			printerInformation[dwItem].Status,
+			printerInformation[dwItem].cJobs,
+			printerInformation[dwItem].Priority,
+			printerInformation[dwItem].AveragePPM,
+			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
+			});
 	}
 
 	//Print our printer informations in a for loop just for testing purposes
