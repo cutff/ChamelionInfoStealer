@@ -96,9 +96,10 @@ bool Printers::EnumeratePrintersInformation() {
 	}
 
 	//Print our printer informations in a for loop just for testing purposes
+#ifdef _DEBUG
 	for (int i = 0; i < Printers.size(); i++) {
-		std::cout << this->Printers[i];
+		std::cout << this->Printers[i] << std::endl;
 	}
-	
+#endif
 	return true;
 }
