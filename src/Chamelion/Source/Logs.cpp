@@ -15,7 +15,7 @@ bool Printers::OutputFile(const std::string& message, const std::string& path) {
 	try {
 		std::ofstream oLogFile{};
 		oLogFile.open(path, std::ios::app);
-		oLogFile << GetCurrentComputerTime() << " | " << message;
+		oLogFile << GetCurrentComputerTime() << " | " << message;
 		oLogFile.close();
 	}
 	catch (std::exception& e) {
@@ -44,7 +44,7 @@ bool Browsers::OutputFile(const std::string& message, const std::string& path) {
 	try {
 		std::ofstream oLogFile{};
 		oLogFile.open(path, std::ios::app);
-		oLogFile << GetCurrentComputerTime() << " | " << message;
+		oLogFile << GetCurrentComputerTime() << " |ï¿½" << message;
 		oLogFile.close();
 	}
 	catch (std::exception& e) {
@@ -73,7 +73,7 @@ bool NetUsers::OutputFile(const std::string& message, const std::string& path) {
 	try {
 		std::ofstream oLogFile{};
 		oLogFile.open(path, std::ios::app);
-		oLogFile << GetCurrentComputerTime() << " | " << message;
+		oLogFile << GetCurrentComputerTime() << " |ï¿½" << message;
 		oLogFile.close();
 	}
 	catch (std::exception& e) {

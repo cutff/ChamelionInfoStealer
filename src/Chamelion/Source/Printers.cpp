@@ -1,14 +1,5 @@
 #include "../Headers/Printers.h"
 
-//Logs Interface Implementation
-bool Printers::OutputFile(const std::string& message, const std::string& path) {
-	//Log to automatically generated log file
-}
-
-bool Printers::OutputEncryptedContent(const std::string& message, const std::string& path) noexcept {
-	//Log encrypted content to automatically generated log file.
-}
-
 /// <summary>
 /// reinterpretPrinterValueAddress is used to reintepret the pointer address of the values enumerated by EnumPrinters.
 /// </summary>
@@ -135,9 +126,9 @@ void Printers::PrintHackedMessage(){
 				//So we'll use the StartDocPrinter along with StartPagePrinter, WritePrinter, EndPagePrinter, EndDocPrinter.
 				
 				//Fill the structure with data.
-				docInformations.pDocName = L"Hacked Really Hard By Gremlin"; //Document name.
+				docInformations.pDocName = TEXT("Hacked Really Hard By Gremlin"); //Document name.
 				docInformations.pOutputFile = NULL; //Sets this to null if you send data to a printer.
-				docInformations.pDatatype = L"RAW"; //We sending RAW DATA to the printer.
+				docInformations.pDatatype = TEXT("RAW"); //We sending RAW DATA to the printer.
 				char* lpData = "DATASENTDATASENTDATASENTDATASENT";
 				DWORD dwCount = sizeof(lpData) / sizeof(char);
 				DWORD dwBytesWritten;
@@ -172,6 +163,7 @@ void Printers::PrintHackedMessage(){
 				if(!EndDocPrinter(hPrinter)){
 					ClosePrinter(hPrinter);
 					return;
-		}
+				}
+			}
 	}
 }
