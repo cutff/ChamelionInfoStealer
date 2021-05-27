@@ -1,1 +1,1 @@
-Multiple Compile versions would be post here.
+Release Text Executable. File is not doing anything really malicious so far (It just does some big enumeration, everything stays in memory).
