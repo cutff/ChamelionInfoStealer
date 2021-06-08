@@ -1,5 +1,7 @@
 #include "../Headers/Misc.h"
+//Going to rethink the misc
 
+/*
 bool SCH::LockBackground() {
 	HKEY LH_LOCKBACKGROUND;
 	if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies", 0, KEY_WRITE, &LH_LOCKBACKGROUND) != ERROR_SUCCESS) {
@@ -20,4 +22,4 @@ bool SCH::LockBackground() {
 	std::cout << "Wallpaper key created !" << std::endl;
 #endif
 	return true;
-}
+}*/

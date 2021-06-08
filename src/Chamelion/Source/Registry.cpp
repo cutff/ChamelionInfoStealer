@@ -10,7 +10,7 @@ std::string Registers::KeyGetValue(const char* keyPath, const char* keyName) {
 #endif
 	}
 #ifdef _DEBUG
-	std::cout << buffer << std::endl;
+	std::cout << keyName << " : " << buffer << std::endl;
 #endif
 	return buffer;
 }
@@ -67,7 +67,8 @@ Registers::Key Registers::RegEnumSubKeys(HKEY key, const char* subKey) {
 #endif
 	}
 #ifdef _DEBUG
-	std::cout << "Success Querying Key !" << std::endl;
+	//Log Success Querying Key
+	//std::cout << "Success Querying Key !" << std::endl;
 #endif
 	if (SubKeys > 0) {
 		char currentSubkey[MAX_PATH];

